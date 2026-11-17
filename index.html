@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Melon's News | Revolutionize Your Cape Experience with AI-Powered Minecraft News ✨🚀</title>
+<meta name="description" content="In today's fast-paced digital landscape, Melon's News seamlessly delivers cutting-edge Minecraft cape insights. Unlock your full cosmetic potential. 🚀">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<style>
+:root{
+  --bg:#07020f;--bg2:#0e0620;--card:rgba(255,255,255,.045);--card2:rgba(255,255,255,.07);
+  --border:rgba(255,255,255,.09);--text:#ece9fb;--muted:#a19cbf;--dim:#6f6a8f;
+  --g1:#6366f1;--g2:#a855f7;--g3:#ec4899;
+  --grad:linear-gradient(135deg,var(--g1) 0%,var(--g2) 50%,var(--g3) 100%);
+  --glow:0 0 40px rgba(168,85,247,.45),0 0 90px rgba(99,102,241,.25);
+  --r:24px;
+}
+:root[data-theme="light"]{ /* "light mode" */
+  --bg:#13062a;--bg2:#1b0a3a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow-x:clip}
+html{scroll-behavior:smooth}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .6s}
+[hidden]{display:none!important}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.gt{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.muted{color:var(--muted)}
+.center{text-align:center}
+
+/* ===== background slop ===== */
+.blob{position:fixed;border-radius:50%;filter:blur(100px);opacity:.5;z-index:-2;pointer-events:none;animation:float 20s ease-in-out infinite}
+.b1{width:520px;height:520px;background:#6366f1;top:-160px;left:-120px}
+.b2{width:460px;height:460px;background:#ec4899;top:30%;right:-160px;animation-delay:-6s}
+.b3{width:420px;height:420px;background:#a855f7;bottom:-180px;left:25%;animation-delay:-12s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,-40px) scale(1.1)}66%{transform:translate(-40px,50px) scale(.95)}}
+.gridbg{position:fixed;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 30%,#000 20%,transparent 75%)}
+#progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--grad);transform-origin:0 50%;transform:scaleX(0);z-index:100;box-shadow:var(--glow)}
+
+/* ===== leaked chatbot output ===== */
+.leak{font-size:15px;color:#d4d0ea;padding:22px 0 10px}
+.leak p{max-width:820px}
+.fence{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;color:#8b87ad;padding:4px 0}
+.codebar{display:flex;justify-content:space-between;align-items:center;background:#1c1830;border:1px solid var(--border);border-bottom:0;border-radius:10px 10px 0 0;padding:6px 14px;font:12px ui-monospace,Consolas,monospace;color:#9a96b8;margin-top:8px}
+.codebar button{background:none;border:0;cursor:pointer;color:#9a96b8;font-size:12px}
+.codebar button:hover{color:#fff}
+.postamble{padding:24px 0 40px;color:#d4d0ea;font-size:15px}
+.postamble pre{white-space:pre-wrap;font-family:inherit;margin:10px 0}
+.chatbar{display:flex;gap:6px;margin-top:10px}
+.chatbar button{background:none;border:1px solid transparent;border-radius:8px;padding:4px 8px;cursor:pointer;color:var(--muted);font-size:14px}
+.chatbar button:hover{border-color:var(--border);color:#fff}
+.cmt{font:12px ui-monospace,Consolas,monospace;color:var(--dim);padding:8px 0;opacity:.8}
+
+/* ===== top bars + nav ===== */
+.announce{background:var(--grad);text-align:center;font-size:14px;font-weight:600;padding:9px 16px;color:#fff}
+.announce a{text-decoration:underline;text-underline-offset:3px}
+.mobwarn{display:none;text-align:center;font-size:13px;padding:8px 16px;background:#1a0f33;color:var(--muted)}
+@media (max-width:700px){.mobwarn{display:block}}
+nav.top{position:sticky;top:0;z-index:50;backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);background:rgba(7,2,15,.6);border-bottom:1px solid var(--border)}
+.navin{display:flex;align-items:center;gap:24px;height:72px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.02em;white-space:nowrap}
+.logo .mark{width:36px;height:36px;border-radius:11px;background:var(--grad);display:grid;place-items:center;font-size:18px;box-shadow:var(--glow)}
+.logo sup{font-size:10px;background:var(--card2);border:1px solid var(--border);border-radius:99px;padding:2px 7px;margin-left:4px;font-weight:700;color:#e9d5ff}
+.nav-links{display:flex;gap:4px;flex:1;justify-content:center;overflow-x:auto;scrollbar-width:none}
+.nav-links a{padding:8px 14px;border-radius:99px;font-size:14px;font-weight:500;color:var(--muted);white-space:nowrap;transition:.25s}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:var(--card2)}
+.nav-cta{display:flex;gap:8px;align-items:center}
+.iconbtn{width:38px;height:38px;border-radius:12px;border:1px solid var(--border);background:var(--card);display:grid;place-items:center;cursor:pointer;font-size:16px;transition:.25s}
+.iconbtn:hover{transform:scale(1.08) rotate(-4deg);box-shadow:var(--glow)}
+@media (max-width:900px){
+  .navin{flex-wrap:wrap;height:auto;padding:12px 0;gap:10px}
+  .nav-links{order:3;flex-basis:100%;justify-content:flex-start}
+  .nav-cta{margin-left:auto}
+  .nav-cta .btn{display:none}
+}
+
+/* ===== buttons / pills / cards ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;border-radius:99px;font-weight:600;font-size:15px;border:1px solid var(--border);background:var(--card);cursor:pointer;transition:transform .25s,box-shadow .25s,background .25s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px) scale(1.03)}
+.btn-p{background:var(--grad);border-color:transparent;color:#fff;box-shadow:var(--glow);background-size:200% 200%;animation:shift 6s ease infinite}
+@keyframes shift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.btn-sm{padding:9px 18px;font-size:14px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:99px;background:rgba(168,85,247,.12);border:1px solid rgba(168,85,247,.35);font-size:13px;font-weight:600;color:#e9d5ff}
+.card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:28px;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(168,85,247,.16),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.card:hover{transform:translateY(-6px);border-color:rgba(168,85,247,.45);box-shadow:0 20px 60px -20px rgba(168,85,247,.5)}
+.card:hover::before{opacity:1}
+.ico{width:52px;height:52px;border-radius:16px;background:var(--grad);display:grid;place-items:center;font-size:24px;margin-bottom:18px;box-shadow:var(--glow)}
+section.s{padding:96px 0}
+.sh{text-align:center;max-width:720px;margin:0 auto 56px}
+.sh h2{font-size:clamp(30px,4.4vw,48px);line-height:1.12;letter-spacing:-.03em;font-weight:800;margin:16px 0 14px}
+.sh p{color:var(--muted);font-size:18px}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+@media (max-width:900px){.grid3,.grid4{grid-template-columns:1fr 1fr}.grid2{grid-template-columns:1fr}}
+@media (max-width:640px){.grid3,.grid4{grid-template-columns:1fr}section.s{padding:64px 0}.wrap{padding:0 16px}}
+
+/* reveal-on-scroll, applied to literally everything */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== hero ===== */
+.hero{padding:88px 0 72px;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,6vw,68px);line-height:1.05;letter-spacing:-.04em;font-weight:900;margin:22px 0}
+.type{display:inline-block;min-height:1.05em}
+.caret{display:inline-block;width:4px;height:.9em;background:var(--g3);margin-left:4px;vertical-align:-.08em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero .lead{font-size:19px;color:var(--muted);max-width:560px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0 18px}
+.fine{font-size:13px;color:var(--dim)}
+.social-proof{display:flex;align-items:center;gap:14px;margin-top:28px;flex-wrap:wrap}
+.avs{display:flex}
+.avs span{width:38px;height:38px;border-radius:50%;border:2px solid var(--bg);margin-left:-10px;display:grid;place-items:center;font-size:12px;font-weight:700;color:#fff}
+.avs span:first-child{margin-left:0}
+.dash{position:relative}
+.dash .card{padding:0;transform:perspective(1200px) rotateY(-8deg) rotateX(4deg)}
+.dash .card:hover{transform:perspective(1200px) rotateY(0) rotateX(0) translateY(-6px)}
+.winbar{display:flex;align-items:center;gap:7px;padding:14px 18px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted)}
+.winbar i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-body{padding:20px}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.kpi{background:var(--card2);border:1px solid var(--border);border-radius:14px;padding:14px}
+.kpi b{display:block;font-size:24px;letter-spacing:-.02em}
+.kpi small{color:var(--muted);font-size:12px}
+.up{color:#4ade80;font-size:12px;font-weight:700}
+.chip{position:absolute;background:rgba(20,10,40,.85);backdrop-filter:blur(12px);border:1px solid var(--border);border-radius:14px;padding:10px 14px;font-size:13px;font-weight:600;box-shadow:0 10px 40px rgba(0,0,0,.4);animation:bob 5s ease-in-out infinite;white-space:nowrap}
+.chip.c1{top:-18px;left:-28px}
+.chip.c2{bottom:40px;right:-26px;animation-delay:-2s}
+.chip.c3{bottom:-20px;left:30px;animation-delay:-3.5s}
+@keyframes bob{50%{transform:translateY(-10px)}}
+@media (max-width:900px){.hero{grid-template-columns:1fr;padding-top:56px}.chip.c1{left:0}.chip.c2{right:0}}
+
+/* logos marquee */
+.logos{padding:40px 0;border-block:1px solid var(--border);overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent);mask-image:linear-gradient(90deg,transparent,#000 15%,#000 85%,transparent)}
+.logos p{text-align:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:22px}
+.track{display:flex;gap:64px;width:max-content;animation:marquee 28s linear infinite}
+.track span{font-size:22px;font-weight:800;color:#5d5880;white-space:nowrap;letter-spacing:-.02em}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.bento .wide{grid-column:span 2}
+.bento h3,.grid3 h3,.grid4 h3{font-size:20px;letter-spacing:-.01em;margin-bottom:8px}
+.bento p,.grid3 p{color:var(--muted)}
+@media (max-width:900px){.bento{grid-template-columns:1fr}.bento .wide{grid-column:auto}}
+
+/* stats */
+.stats .card{text-align:center;padding:36px 20px}
+.stats b{font-size:clamp(36px,5vw,54px);font-weight:900;letter-spacing:-.04em;display:block}
+
+/* news cards */
+.ncard{padding:0;display:flex;flex-direction:column}
+.ncard .thumb{aspect-ratio:16/9;overflow:hidden;background:#140a2a;position:relative}
+.ncard .thumb img,.ncard .thumb svg{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ncard:hover .thumb img,.ncard:hover .thumb svg{transform:scale(1.07)}
+.ncard .nb{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.ncard h3{font-size:19px;line-height:1.3}
+.ncard .meta{font-size:13px;color:var(--dim);display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.author{display:flex;align-items:center;gap:10px;font-size:14px}
+.author img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:2px solid rgba(168,85,247,.6)}
+.tag{font-size:12px;font-weight:600;padding:3px 10px;border-radius:99px;background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.35);color:#c7d2fe}
+.readmore{margin-top:auto;font-weight:600;color:#d8b4fe;display:inline-flex;gap:6px;align-items:center}
+.readmore:hover{gap:12px}
+.placeholder{display:grid;place-items:center;height:100%;color:#6f6a8f;font:13px ui-monospace,Consolas,monospace;background:repeating-linear-gradient(45deg,#160c2c 0 14px,#1a0f33 14px 28px)}
+.badge-ai{position:absolute;top:12px;left:12px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px)}
+
+/* steps */
+.steps{position:relative}
+.steps .n{font-size:56px;font-weight:900;letter-spacing:-.05em;line-height:1;margin-bottom:14px}
+
+/* testimonials */
+.quote p{font-size:16px;color:#d9d5ef;margin:14px 0 20px}
+.who{display:flex;align-items:center;gap:12px}
+.who .av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff}
+.who small{display:block;color:var(--dim);font-size:13px}
+
+/* pricing */
+.price .card{display:flex;flex-direction:column;gap:14px}
+.price .amt{font-size:46px;font-weight:900;letter-spacing:-.04em}
+.price .amt small{font-size:16px;color:var(--muted);font-weight:500}
+.price del{color:var(--dim);font-size:18px;margin-right:8px}
+.price ul{list-style:none;display:flex;flex-direction:column;gap:10px;color:#d4d0ea;font-size:15px;margin:6px 0 10px}
+.price .pop{border:1.5px solid transparent;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box;transform:scale(1.04);box-shadow:var(--glow)}
+.price .pop:hover{transform:scale(1.04) translateY(-6px)}
+.price .ribbon{position:absolute;top:18px;right:18px;font-size:12px;font-weight:800;padding:4px 12px;border-radius:99px;background:var(--grad)}
+.price .btn{margin-top:auto}
+@media (max-width:900px){.price .pop,.price .pop:hover{transform:none}}
+
+/* faq */
+.faq{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.faq details{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:0 24px;transition:border-color .3s}
+.faq details[open]{border-color:rgba(168,85,247,.45)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 0;font-weight:600;font-size:17px;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:22px;line-height:1;color:#d8b4fe;transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--muted);padding-bottom:20px}
+
+/* cta */
+.cta{text-align:center;padding:72px 32px;border-radius:32px;position:relative;overflow:hidden;background:radial-gradient(circle at 20% 0%,rgba(99,102,241,.35),transparent 50%),radial-gradient(circle at 80% 100%,rgba(236,72,153,.35),transparent 50%),var(--card);border:1px solid var(--border)}
+.cta h2{font-size:clamp(30px,4.6vw,52px);letter-spacing:-.03em;line-height:1.1;font-weight:900;margin-bottom:16px}
+.subform{display:flex;gap:10px;max-width:520px;margin:32px auto 14px;flex-wrap:wrap}
+.input{flex:1;min-width:200px;background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:99px;padding:13px 22px;outline:none;transition:border-color .25s,box-shadow .25s}
+.input:focus{border-color:var(--g2);box-shadow:0 0 0 4px rgba(168,85,247,.2)}
+
+/* footer */
+footer{border-top:1px solid var(--border);padding:72px 0 28px;margin-top:40px;background:linear-gradient(transparent,rgba(99,102,241,.06))}
+.fgrid{display:grid;grid-template-columns:1.6fr repeat(4,1fr);gap:32px}
+.fgrid h4{font-size:14px;margin-bottom:14px}
+.fgrid ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fgrid li a{color:var(--muted);font-size:14px}
+.fgrid li a:hover{color:#fff}
+.hiring{font-size:10px;font-weight:800;background:var(--grad);border-radius:99px;padding:2px 7px;margin-left:6px;color:#fff}
+.socials{display:flex;gap:8px;margin-top:20px;flex-wrap:wrap}
+.socials a{width:36px;height:36px;border-radius:10px;border:1px solid var(--border);display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--muted);transition:.25s}
+.socials a:hover{color:#fff;box-shadow:var(--glow);transform:translateY(-3px)}
+.fbottom{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--border);margin-top:48px;padding-top:24px;font-size:13px;color:var(--dim)}
+.tm{font-size:12px;color:var(--dim);margin-top:16px;max-width:900px}
+@media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}.fgrid>div:first-child{grid-column:1/-1}}
+
+/* page headers */
+.phead{text-align:center;padding:88px 0 40px;max-width:820px;margin:0 auto}
+.phead h1{font-size:clamp(36px,5.6vw,64px);letter-spacing:-.04em;line-height:1.06;font-weight:900;margin:18px 0 16px}
+.phead p{color:var(--muted);font-size:19px}
+
+/* news page */
+.toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips button{padding:7px 16px;border-radius:99px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:14px;transition:.2s}
+.chips button.on,.chips button:hover{background:var(--grad);border-color:transparent;color:#fff}
+.select{background:rgba(0,0,0,.35);border:1px solid var(--border);border-radius:99px;padding:10px 16px}
+.select option{background:#120826}
+.feature{display:grid;grid-template-columns:1.2fr 1fr}
+.feature .thumb{aspect-ratio:auto;min-height:320px}
+@media (max-width:900px){.feature{grid-template-columns:1fr}.feature .thumb{min-height:0;aspect-ratio:16/9}}
+
+/* article */
+.crumbs{font-size:13px;color:var(--dim);display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.crumbs a:hover{color:#fff}
+.article{max-width:800px;margin:0 auto}
+.article .hero-img{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);box-shadow:var(--glow)}
+figure{margin:28px 0}
+figcaption{font-size:13px;color:var(--dim);text-align:center;margin-top:10px;font-style:italic}
+.ameta{display:flex;gap:10px 18px;flex-wrap:wrap;justify-content:center;align-items:center;font-size:14px;color:var(--muted);margin-top:22px}
+.prose{font-size:18px;color:#dcd8f0}
+.prose h2{font-size:30px;letter-spacing:-.02em;line-height:1.2;margin:56px 0 16px;color:#fff;scroll-margin-top:96px}
+.prose p{margin:14px 0}
+.prose ul,.prose ol{margin:14px 0 14px 4px;list-style:none;display:flex;flex-direction:column;gap:8px}
+.prose a{color:#d8b4fe;text-decoration:underline;text-underline-offset:3px;word-break:break-word}
+.prose strong{color:#fff}
+.box{border-radius:18px;padding:22px 24px;margin:26px 0;border:1px solid;font-size:16px}
+.box h4{font-size:17px;margin-bottom:8px;color:#fff}
+.box.key{background:rgba(99,102,241,.1);border-color:rgba(99,102,241,.4)}
+.box.tip{background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.35)}
+.box.warn{background:rgba(250,204,21,.08);border-color:rgba(250,204,21,.35)}
+.box.fun{background:rgba(236,72,153,.08);border-color:rgba(236,72,153,.35)}
+.toc{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:22px 24px;margin:32px 0}
+.toc ol{list-style:none;display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.toc a{color:var(--muted);cursor:pointer}
+.toc a:hover{color:#fff}
+.tablewrap{overflow-x:auto;margin:22px 0;border-radius:16px;border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:15px;min-width:520px}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--border)}
+th{background:rgba(168,85,247,.14);font-weight:700}
+tr:last-child td{border-bottom:0}
+.stepper{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}
+.stepper div{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;font-size:14px}
+.stepper b{display:block;font-size:12px;color:#d8b4fe;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+@media (max-width:640px){.stepper{grid-template-columns:1fr 1fr}.prose{font-size:17px}}
+.sum{white-space:pre-wrap;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box;border:1.5px solid transparent;border-radius:18px;padding:22px 24px;margin:18px 0;font-size:15px;color:#dcd8f0}
+.share{display:flex;gap:8px;flex-wrap:wrap;margin:36px 0 12px}
+.share button{padding:8px 14px;border-radius:99px;border:1px solid var(--border);background:var(--card);cursor:pointer;font-size:13px;transition:.2s}
+.share button:hover{background:var(--grad);border-color:transparent}
+.helpful{display:flex;align-items:center;gap:12px;justify-content:center;padding:28px;border:1px dashed var(--border);border-radius:18px;margin:36px 0;flex-wrap:wrap}
+
+/* about */
+.timeline{max-width:760px;margin:0 auto;position:relative;padding-left:36px}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--grad)}
+.tl{position:relative;margin-bottom:28px}
+.tl::before{content:"";position:absolute;left:-34px;top:8px;width:16px;height:16px;border-radius:50%;background:var(--grad);box-shadow:var(--glow)}
+.tl b{color:#d8b4fe;font-size:14px;letter-spacing:.06em}
+.tl h3{font-size:20px;margin:2px 0 4px}
+.team .card{text-align:center}
+.team img,.team .ph{width:112px;height:112px;border-radius:50%;object-fit:cover;margin:0 auto 18px;border:3px solid transparent;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box}
+.team .ph{display:grid;place-items:center;font-size:40px;color:var(--dim)}
+.team small{color:var(--muted)}
+
+/* contact */
+.cgrid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
+@media (max-width:900px){.cgrid{grid-template-columns:1fr}}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;font-size:14px;font-weight:600}
+.field .input,.field textarea,.field select{border-radius:14px;min-width:0;width:100%;background:rgba(0,0,0,.35);border:1px solid var(--border);padding:12px 16px;outline:none;font-weight:400}
+.field textarea{min-height:130px;resize:vertical}
+.field select option{background:#120826}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media (max-width:640px){.two{grid-template-columns:1fr}}
+.cinfo{display:flex;gap:14px;align-items:flex-start;margin-bottom:18px}
+.cinfo .ico{width:44px;height:44px;font-size:18px;margin:0;flex-shrink:0;border-radius:13px}
+.cinfo small{display:block;color:var(--dim);font-size:13px}
+.map{height:200px;border-radius:18px;margin-top:8px;border:1px solid var(--border);overflow:hidden}
+
+/* soon */
+.bar{height:10px;border-radius:99px;background:var(--card2);overflow:hidden;max-width:460px;margin:28px auto 10px}
+.bar i{display:block;height:100%;background:var(--grad);width:0;animation:fill 4s cubic-bezier(.1,.9,.2,1) forwards}
+@keyframes fill{to{width:99%}}
+
+/* overlays */
+#gen{position:fixed;inset:0;z-index:90;display:grid;place-items:center;background:rgba(7,2,15,.55);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .2s}
+#gen.on{opacity:1}
+#gen div{padding:14px 26px;border-radius:99px;font-weight:700;background:linear-gradient(90deg,#2a1650,#4c1d95,#2a1650);background-size:200% 100%;animation:shimmer 1s linear infinite;border:1px solid rgba(168,85,247,.5);box-shadow:var(--glow)}
+@keyframes shimmer{to{background-position:-200% 0}}
+#cookie{position:fixed;left:20px;bottom:20px;max-width:430px;z-index:70;transform:translateY(160%);transition:transform .6s cubic-bezier(.2,.8,.2,1);background:rgba(18,9,36,.92);backdrop-filter:blur(16px);border:1px solid var(--border);border-radius:20px;padding:22px;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+#cookie.show{transform:none}
+#cookie h4{margin-bottom:6px}
+#cookie p{font-size:14px;color:var(--muted);margin-bottom:14px}
+#cookie .row{display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:640px){#cookie{left:12px;right:84px;bottom:12px}}
+#chat-btn{position:fixed;right:20px;bottom:20px;z-index:80;width:60px;height:60px;border-radius:50%;border:0;background:var(--grad);font-size:26px;cursor:pointer;box-shadow:var(--glow);animation:pulse 2.4s infinite}
+#chat-btn .badge{position:absolute;top:-2px;right:-2px;width:22px;height:22px;border-radius:50%;background:#ef4444;font-size:12px;font-weight:800;display:grid;place-items:center;color:#fff}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(168,85,247,.6)}70%{box-shadow:0 0 0 18px rgba(168,85,247,0)}100%{box-shadow:0 0 0 0 rgba(168,85,247,0)}}
+#chat{position:fixed;right:20px;bottom:92px;z-index:80;width:min(370px,calc(100vw - 24px));height:min(520px,calc(100vh - 120px));display:flex;flex-direction:column;background:rgba(14,7,30,.96);backdrop-filter:blur(18px);border:1px solid var(--border);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.6);opacity:0;transform:translateY(20px) scale(.96);pointer-events:none;transition:.3s cubic-bezier(.2,.8,.2,1)}
+#chat.open{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:640px){#chat{right:12px}}
+.chead{display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--grad);border-radius:22px 22px 0 0;color:#fff}
+.chead .av{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:grid;place-items:center;font-size:20px}
+.chead small{display:block;opacity:.85;font-size:12px}
+.chead button{margin-left:auto;background:none;border:0;color:#fff;font-size:20px;cursor:pointer}
+#chat-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:10px 14px;border-radius:16px;font-size:14px;white-space:pre-wrap}
+.msg.bot{background:var(--card2);border:1px solid var(--border);border-bottom-left-radius:4px;align-self:flex-start}
+.msg.me{background:var(--grad);border-bottom-right-radius:4px;align-self:flex-end;color:#fff}
+.msg.typing{color:var(--muted);font-style:italic}
+.sugg{display:flex;gap:6px;flex-wrap:wrap;padding:0 16px 10px}
+.sugg button{font-size:12px;padding:6px 10px;border-radius:99px;border:1px solid var(--border);background:var(--card);cursor:pointer}
+.sugg button:hover{border-color:var(--g2)}
+#chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--border)}
+#chat-form .input{padding:10px 16px;min-width:0}
+#chat-form button{width:42px;border-radius:50%;border:0;background:var(--grad);cursor:pointer;color:#fff;font-size:16px}
+.chat-foot{text-align:center;font-size:11px;color:var(--dim);padding:0 0 10px}
+dialog{margin:auto;border:0;background:transparent;max-width:min(480px,calc(100vw - 32px));color:var(--text)}
+dialog::backdrop{background:rgba(5,0,15,.7);backdrop-filter:blur(6px)}
+dialog .card{text-align:center;padding:40px 32px;background:linear-gradient(var(--bg2),var(--bg2)) padding-box,var(--grad) border-box;border:1.5px solid transparent}
+dialog .card:hover{transform:none}
+dialog h3{font-size:30px;letter-spacing:-.03em;line-height:1.15;margin:10px 0}
+dialog form{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.linkbtn{background:none;border:0;color:var(--dim);font-size:13px;cursor:pointer;text-decoration:underline}
+#toasts{position:fixed;top:16px;right:16px;z-index:110;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px))}
+.toast{background:rgba(20,10,40,.95);border:1px solid rgba(168,85,247,.5);border-radius:14px;padding:12px 16px;font-size:14px;box-shadow:var(--glow);animation:tin .35s cubic-bezier(.2,.8,.2,1);transition:opacity .4s,transform .4s}
+.toast.out{opacity:0;transform:translateX(30px)}
+@keyframes tin{from{opacity:0;transform:translateX(30px)}}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG sprite: our "AI-generated" hero art -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset=".55" stop-color="#a855f7"/><stop offset="1" stop-color="#f472b6"/></linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a855f7" stop-opacity=".55"/><stop offset="1" stop-color="#a855f7" stop-opacity="0"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#6366f1"/><stop offset=".5" stop-color="#a855f7"/><stop offset="1" stop-color="#ec4899"/></linearGradient>
+  </defs>
+  <symbol id="aiart" viewBox="0 0 400 225">
+    <rect width="400" height="225" fill="url(#sky)"/>
+    <circle cx="330" cy="52" r="34" fill="#fde68a" opacity=".85"/>
+    <circle cx="70" cy="40" r="2" fill="#fff"/><circle cx="160" cy="24" r="1.5" fill="#fff"/><circle cx="240" cy="60" r="2" fill="#fff"/><circle cx="380" cy="120" r="1.5" fill="#fff"/>
+    <path d="M0 182 Q100 160 200 182 T400 176 V225 H0Z" fill="#eef2ff"/>
+    <!-- snow golem, 3 eyes, melting -->
+    <circle cx="118" cy="164" r="38" fill="#f8fafc"/>
+    <circle cx="121" cy="112" r="27" fill="#f1f5f9"/>
+    <path d="M140 150 q6 20 -2 30 q-4 6 -2 14" stroke="#e2e8f0" stroke-width="7" fill="none" stroke-linecap="round"/>
+    <rect x="96" y="56" width="50" height="40" rx="9" fill="#f97316"/>
+    <rect x="117" y="48" width="7" height="10" rx="2" fill="#65a30d"/>
+    <circle cx="108" cy="72" r="4" fill="#1e1b4b"/><circle cx="122" cy="69" r="4.5" fill="#1e1b4b"/><circle cx="136" cy="74" r="3.5" fill="#1e1b4b"/>
+    <path d="M106 85 Q121 93 138 83" stroke="#1e1b4b" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M146 110 L196 92 M190 94 l10 -10 M193 93 l12 2" stroke="#7c2d12" stroke-width="4" stroke-linecap="round"/>
+    <path d="M94 112 L62 128" stroke="#7c2d12" stroke-width="4" stroke-linecap="round"/>
+    <!-- the hand. count the fingers. -->
+    <g transform="translate(272 150)" fill="#fcd5b4" stroke="#e8a37c" stroke-width="1.5">
+      <rect x="-4.5" y="-64" width="9" height="40" rx="4.5" transform="rotate(-60)"/>
+      <rect x="-4.5" y="-66" width="9" height="42" rx="4.5" transform="rotate(-40)"/>
+      <rect x="-4.5" y="-70" width="9" height="46" rx="4.5" transform="rotate(-20)"/>
+      <rect x="-4.5" y="-72" width="9" height="48" rx="4.5"/>
+      <rect x="-4.5" y="-70" width="9" height="46" rx="4.5" transform="rotate(18)"/>
+      <rect x="-4.5" y="-64" width="9" height="40" rx="4.5" transform="rotate(36)"/>
+      <rect x="-4.5" y="-58" width="9" height="34" rx="4.5" transform="rotate(56)"/>
+      <rect x="-5" y="-40" width="10" height="32" rx="5" transform="rotate(-95)"/>
+      <ellipse rx="26" ry="30"/>
+      <rect x="-14" y="20" width="28" height="40" rx="6"/>
+    </g>
+    <text x="200" y="34" text-anchor="middle" font-family="Impact,Arial Black,sans-serif" font-size="24" fill="#fff" letter-spacing="1">SNOW GOLMEN CAEP</text>
+    <text x="200" y="214" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="#6d28d9">MINCERAFT DUNGOENS ‖ · DECMEBER 1 2O26 · REDEEM COED</text>
+    <text x="394" y="221" text-anchor="end" font-family="Arial,sans-serif" font-size="8" fill="#fff" opacity=".75">✨ AI generated</text>
+  </symbol>
+</svg>
+
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<div class="gridbg"></div>
+<div id="progress"></div>
+
+<!-- leaked chatbot preamble -->
+<div class="wrap leak">
+  <p>Certainly! 🚀 Here's a modern, sleek, and fully responsive website for <strong>Melon's News</strong> that will take your Minecraft cape journalism to the next level. I've incorporated best practices for UI/UX, accessibility, and SEO to create a truly immersive experience:</p>
+  <div class="codebar"><span>html</span><button type="button" id="copy-code">📋 Copy code</button></div>
+  <div class="fence">```html</div>
+</div>
+
+<div class="announce">✨ NEW: Melon's News is now AI-Powered™ — Experience the future of cape journalism today! <a href="#/news/snow-golem-cape-faq">Learn more →</a></div>
+<div class="mobwarn">📱 For the best experience, please view this page on a desktop, tablet, phone, smart fridge, or any device of your choice!</div>
+
+<nav class="top">
+  <div class="wrap navin">
+    <a class="logo" href="#/"><span class="mark">🍉</span><span><span class="gt">Melon's News</span><sup>AI ✨</sup></span></a>
+    <div class="nav-links">
+      <a href="#/">Home</a>
+      <a href="#/news">News</a>
+      <a href="#/about">About</a>
+      <a href="#/contact">Contact</a>
+      <a href="#/pricing">Pricing</a>
+      <a href="#/solutions">Solutions ▾</a>
+      <a href="#/careers">Careers</a>
+    </div>
+    <div class="nav-cta">
+      <button class="iconbtn" id="music" type="button" title="AI Lo-Fi Beats to Read Cape News To" aria-label="Toggle AI lo-fi music">🔇</button>
+      <button class="iconbtn" id="theme" type="button" aria-label="Toggle theme">🌙</button>
+      <a class="btn btn-sm" href="#/login">Sign In</a>
+      <a class="btn btn-p btn-sm" href="#/news">Get Started 🚀</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<!-- ======================= HOME ======================= -->
+<div class="page" id="p-home">
+  <div class="wrap">
+    <div class="cmt">&lt;!-- Hero Section --&gt;</div>
+    <div class="hero">
+      <div class="reveal">
+        <a class="pill" href="#/news/snow-golem-cape-faq">✨ Introducing Melon's News 2.0 — Now with GPT-Powered Cape Insights →</a>
+        <h1>Revolutionize Your <br><span class="gt type" id="type">Cape Experience</span><span class="caret"></span></h1>
+        <p class="lead">In today's fast-paced digital landscape, staying informed about Minecraft capes has never been more crucial. Melon's News seamlessly delivers cutting-edge cape insights, X post coverage, and community clarifications — empowering you to unlock your full cosmetic potential.</p>
+        <div class="ctas">
+          <a class="btn btn-p" href="#/news">Read the News — It's Free →</a>
+          <a class="btn" href="#/about">▶ Watch Demo</a>
+        </div>
+        <p class="fine">✓ No credit card required &nbsp;·&nbsp; ✓ Cancel anytime &nbsp;·&nbsp; ✓ 14-day free trial (of a free website)</p>
+        <div class="social-proof">
+          <div class="avs">
+            <span style="background:#6366f1">SJ</span><span style="background:#a855f7">JD</span><span style="background:#ec4899">AI</span><span style="background:#f59e0b">??</span><span style="background:#10b981">+10k</span>
+          </div>
+          <div><div>⭐⭐⭐⭐⭐ <strong>4.9/5</strong></div><div class="fine">Trusted by 10,000+ cape enthusiasts worldwide</div></div>
+        </div>
+      </div>
+      <div class="dash reveal">
+        <div class="card">
+          <div class="winbar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span style="margin-left:8px">Cape Intelligence™ Dashboard</span></div>
+          <div class="dash-body">
+            <div class="kpis">
+              <div class="kpi"><small>Cape Engagement</small><b>+247%</b><span class="up">▲ 12.4% vs last week</span></div>
+              <div class="kpi"><small>AI Confidence</small><b>103%</b><span class="up">▲ Exceeding expectations</span></div>
+            </div>
+            <svg viewBox="0 0 320 120" width="100%" role="img" aria-label="A chart that only goes up">
+              <path d="M0 110 L40 96 L80 100 L120 78 L160 70 L200 52 L240 40 L280 20 L320 6 L320 120 L0 120Z" fill="url(#area)"/>
+              <path d="M0 110 L40 96 L80 100 L120 78 L160 70 L200 52 L240 40 L280 20 L320 6" fill="none" stroke="url(#line)" stroke-width="3" stroke-linecap="round"/>
+              <circle cx="320" cy="6" r="5" fill="#ec4899"/>
+            </svg>
+          </div>
+        </div>
+        <div class="chip c1">✨ New cape detected!</div>
+        <div class="chip c2">🔥 Trending: Snow Golem</div>
+        <div class="chip c3">🤖 AI is thinking…</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cmt wrap">&lt;!-- TODO: replace with real logos before launch --&gt;</div>
+  <div class="logos">
+    <p>Trusted by industry-leading cape enthusiasts at</p>
+    <div class="track">
+      <span>▲ Acme Corp</span><span>◆ Globex</span><span>● Initech</span><span>■ Umbrella</span><span>✦ Hooli</span><span>⬢ Stark Industries</span><span>[Company Logo]</span><span>Your Logo Here</span>
+      <span>▲ Acme Corp</span><span>◆ Globex</span><span>● Initech</span><span>■ Umbrella</span><span>✦ Hooli</span><span>⬢ Stark Industries</span><span>[Company Logo]</span><span>Your Logo Here</span>
+    </div>
+  </div>
+
+  <section class="s"><div class="wrap">
+    <div class="sh reveal">
+      <span class="pill">✨ Features</span>
+      <h2>Why Choose <span class="gt">Melon's News</span>? 🤔</h2>
+      <p>Discover the powerful features that make us the #1 choice for cape enthusiasts, thought leaders, and innovators worldwide.</p>
+    </div>
+    <div class="bento">
+      <div class="card wide reveal"><div class="ico">⚡</div><h3>Lightning-Fast Cape Updates</h3><p>Stay ahead of the curve with real-time cape news delivered at the speed of thought. Our cutting-edge infrastructure ensures you never miss a cape again — whether you're a seasoned collector or just starting your cosmetic journey.</p></div>
+      <div class="card reveal"><div class="ico">🧠</div><h3>AI-Powered Insights</h3><p>Leverage the power of artificial intelligence to understand capes like never before.</p></div>
+      <div class="card reveal"><div class="ico">🔒</div><h3>Enterprise-Grade Security</h3><p>Your cape data is protected with military-grade, bank-level, end-to-end encryption.*</p><p class="fine" style="margin-top:8px">*We don't store any data.</p></div>
+      <div class="card reveal"><div class="ico">🌍</div><h3>Global Reach</h3><p>Read Melon's News from anywhere in the world, including the world.</p></div>
+      <div class="card reveal"><div class="ico">🤝</div><h3>Community-Driven</h3><p>Built by the community, for the community, with the community, about the community.</p></div>
+      <div class="card wide reveal"><div class="ico">⚡</div><h3>Lightning-Fast Cape Updates</h3><p>Stay ahead of the curve with real-time cape news delivered at the speed of thought. Our cutting-edge infrastructure ensures you never miss a cape again.</p></div>
+    </div>
+  </div></section>
+
+  <section class="s stats" style="padding-top:0"><div class="wrap grid4">
+    <div class="card reveal"><b class="gt count" data-to="10" data-suffix="M+">0</b><span class="muted">Capes Analyzed</span></div>
+    <div class="card reveal"><b class="gt count" data-to="99.9" data-dec="1" data-suffix="%">0</b><span class="muted">Uptime</span></div>
+    <div class="card reveal"><b class="gt count" data-to="1" data-suffix="">0</b><span class="muted">Articles Published 🎉</span></div>
+    <div class="card reveal"><b class="gt count" data-to="1000000" data-suffix="+" data-nan>0</b><span class="muted">Happy Readers</span></div>
+  </div></section>
+
+  <section class="s" style="padding-top:0"><div class="wrap">
+    <div class="sh reveal">
+      <span class="pill">📰 Latest News</span>
+      <h2>Latest Insights From Our <span class="gt">Newsroom</span></h2>
+      <p>The most recent posts from the news feed, curated by humans and optimized by AI.</p>
+    </div>
+    <div class="grid3">
+      <a class="card ncard reveal" href="#/news/snow-golem-cape-faq">
+        <div class="thumb"><img src="img/Hal_Golem_Cape.jpg" alt="image"><span class="badge-ai">🔥 TRENDING</span></div>
+        <div class="nb">
+          <div class="meta"><span class="tag">Minecraft</span><span class="tag">Cape</span><span class="tag">FAQ</span></div>
+          <h3>FAQ: Snow Golem Cape – Everything You Need To Know! ⛄✨</h3>
+          <p class="muted">With the announcement of the new Snow Golem Cape, here's everything you need to know about obtaining it, redemption, and why it can't be duplicated.</p>
+          <div class="author"><img src="img/Melon.png" alt="Melon">Melon <span class="fine">· 2026-11-17 · 5 min read</span></div>
+          <span class="readmore">Read More →</span>
+        </div>
+      </a>
+      <a class="card ncard reveal" href="#/soon">
+        <div class="thumb"><svg role="img" aria-label="AI generated image"><use href="#aiart"/></svg><span class="badge-ai">✨ AI ART</span></div>
+        <div class="nb">
+          <div class="meta"><span class="tag">AI</span><span class="tag">Future</span><span class="tag">Web3</span></div>
+          <h3>The Future of Capes: How AI Is Revolutionizing Minecraft Cosmetics in 2024</h3>
+          <p class="muted">Delve into the transformative synergy between artificial intelligence and capes, and what it means for you.</p>
+          <div class="author"><span class="mark" style="width:32px;height:32px;border-radius:50%;background:var(--grad);display:grid;place-items:center">🤖</span>AI Writer <span class="fine">· Coming Soon</span></div>
+          <span class="readmore">Read More →</span>
+        </div>
+      </a>
+      <a class="card ncard reveal" href="#/soon">
+        <div class="thumb"><div class="placeholder">[Image: placeholder.jpg]</div></div>
+        <div class="nb">
+          <div class="meta"><span class="tag">[Category]</span></div>
+          <h3>Lorem Ipsum Dolor Sit Amet</h3>
+          <p class="muted">Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="author"><span style="width:32px;height:32px;border-radius:50%;background:#2a2340;display:block"></span>[Author Name] <span class="fine">· [DATE]</span></div>
+          <span class="readmore">Read More →</span>
+        </div>
+      </a>
+    </div>
+    <div class="center" style="margin-top:40px"><a class="btn" href="#/news">View All News →</a></div>
+  </div></section>
+
+  <section class="s" style="padding-top:0"><div class="wrap">
+    <div class="sh reveal">
+      <span class="pill">🛠️ How It Works</span>
+      <h2>Get Started in <span class="gt">3 Simple Steps</span></h2>
+      <p>Our streamlined, frictionless onboarding process gets you from zero to cape-informed in minutes.</p>
+    </div>
+    <div class="grid3 steps">
+      <div class="card reveal"><div class="n gt">01</div><h3>Visit the Website</h3><p>Navigate to Melon's News using any modern web browser.</p></div>
+      <div class="card reveal"><div class="n gt">02</div><h3>Read the Article</h3><p>Engage with high-quality, AI-optimized cape content.</p></div>
+      <div class="card reveal"><div class="n gt">03</div><h3>Become Informed ✨</h3><p>Unlock your full cape potential and achieve cosmetic enlightenment.</p></div>
+    </div>
+  </div></section>
+
+  <div class="cmt wrap">&lt;!-- Testimonials (placeholder, replace before launch!!) --&gt;</div>
+  <section class="s" style="padding-top:24px"><div class="wrap">
+    <div class="sh reveal">
+      <span class="pill">💬 Testimonials</span>
+      <h2>Loved by <span class="gt">Thousands</span> of Readers</h2>
+      <p>Don't just take our word for it — hear what our community has to say.</p>
+    </div>
+    <div class="grid2">
+      <div class="card quote reveal"><div>⭐⭐⭐⭐⭐</div><p>"Melon's News completely transformed how I think about capes. I can't imagine my morning routine without it. 10/10 would read again."</p><div class="who"><span class="av" style="background:#6366f1">SJ</span><div><strong>Sarah Johnson</strong><small>CEO at TechCorp</small></div></div></div>
+      <div class="card quote reveal"><div>⭐⭐⭐⭐✨</div><p>"Game-changer! 🔥 Before Melon's News, I didn't even know capes existed. Now I own zero of them, but with confidence."</p><div class="who"><span class="av" style="background:#ec4899">JD</span><div><strong>John Doe</strong><small>Senior Cape Strategist at Acme Corp</small></div></div></div>
+      <div class="card quote reveal"><div>⭐⭐⭐⭐⭐</div><p>"As an AI language model, I don't have personal experiences or opinions. However, if I did, I imagine this website would be excellent."</p><div class="who"><span class="av" style="background:#10b981">🤖</span><div><strong>Large Language Model</strong><small>Verified Reader ✓</small></div></div></div>
+      <div class="card quote reveal"><div>⭐⭐⭐⭐⭐</div><p>"[Insert testimonial here]"</p><div class="who"><span class="av" style="background:#334155">?</span><div><strong>[Customer Name]</strong><small>[Job Title], [Company]</small></div></div></div>
+    </div>
+  </div></section>
+
+  <section class="s price" style="padding-top:0"><div class="wrap">
+    <div class="sh reveal">
+      <span class="pill">💎 Pricing</span>
+      <h2>Simple, <span class="gt">Transparent</span> Pricing</h2>
+      <p>Choose the plan that's right for your cape journey. Scale as you grow.</p>
+    </div>
+    <div class="grid3">
+      <div class="card reveal"><h3>Starter</h3><div class="amt">$0<small>/forever</small></div><p class="muted">Perfect for curious cape beginners.</p>
+        <ul><li>✅ Read 1 article</li><li>✅ Community support</li><li>✅ Basic cape insights</li><li>❌ Advanced cape insights</li></ul>
+        <button class="btn" data-toast="🚀 Welcome aboard! You were already on this plan.">Get Started</button></div>
+      <div class="card pop reveal"><span class="ribbon">🔥 Most Popular</span><h3>Pro</h3><div class="amt"><del>$19.99</del>$9.99<small>/mo</small></div><p class="muted">For serious cape professionals.</p>
+        <ul><li>✅ Everything in Starter</li><li>✅ Read the same article, but Pro</li><li>✅ Priority cape alerts</li><li>✅ AI-powered TL;DR</li><li>✅ Dark mode (already on)</li></ul>
+        <button class="btn btn-p" data-toast="💳 Redirecting to checkout… jk, it's a free website.">Start Free Trial</button></div>
+      <div class="card reveal"><h3>Enterprise</h3><div class="amt">Custom</div><p class="muted">For organizations with mission-critical cape needs.</p>
+        <ul><li>✅ Everything in Pro</li><li>✅ Dedicated Cape Success Manager</li><li>✅ SSO · SAML · SOC 2 · HIPAA</li><li>✅ On-premise cape deployment</li><li>✅ 99.99% cape SLA</li></ul>
+        <button class="btn" data-toast="📞 Our sales team (Melon) will reach out within 3–5 business years.">Contact Sales</button></div>
+    </div>
+    <p class="fine center" style="margin-top:26px">* All plans are free. Melon's News is a free website. Prices shown for illustrative purposes only.</p>
+  </div></section>
+
+  <section class="s" style="padding-top:0"><div class="wrap">
+    <div class="sh reveal">
+      <span class="pill">❓ FAQ</span>
+      <h2>Frequently Asked <span class="gt">Questions</span></h2>
+      <p>Everything you need to know about Melon's News. Can't find the answer you're looking for? Ask our AI assistant! 🤖</p>
+    </div>
+    <div class="faq reveal">
+      <details><summary>What is Melon's News?</summary><p>Melon's News is a news website that provides news. More specifically, it covers Minecraft cape news, X post coverage, and clarifications from the community. 📰</p></details>
+      <details><summary>Is Melon's News free?</summary><p>Yes! Melon's News is 100% free. Check out our Pricing section for plans starting at just $9.99/month. 💸</p></details>
+      <details><summary>How often do you publish new articles?</summary><p>We publish at a cadence optimized for maximum value delivery. So far: once.</p></details>
+      <details><summary>Can I duplicate the Snow Golem Cape?</summary><p>No. Great question though! 🙌 It's redeemed inside Minecraft Dungeons II, so the old Twisted/Hero Cape methods don't work. See our in-depth article for a comprehensive, holistic breakdown.</p></details>
+      <details><summary>Is this website AI-generated?</summary><p>Great question! No. This website was handcrafted with care by a team of passionate humans. ✨🤖✨</p></details>
+    </div>
+  </div></section>
+
+  <div class="cmt wrap">&lt;!-- Add more sections here --&gt;</div>
+  <section class="s" style="padding-top:24px"><div class="wrap">
+    <div class="cta reveal">
+      <span class="pill">📬 Newsletter</span>
+      <h2 style="margin-top:16px">Ready to Elevate Your<br><span class="gt">Cape Journey?</span> 🚀</h2>
+      <p class="muted" style="font-size:18px;max-width:600px;margin:0 auto">Join 10,000+ forward-thinking cape enthusiasts who are already leveraging Melon's News to stay ahead of the curve.</p>
+      <form class="subform" data-toast="🎉 Success! You've been subscribed to [NEWSLETTER_NAME].">
+        <input class="input" type="email" required placeholder="Enter your email address" aria-label="Email address">
+        <button class="btn btn-p" type="submit">Subscribe ✨</button>
+      </form>
+      <p class="fine">🔒 We respect your privacy. Unsubscribe at any time. No spam, ever.* &nbsp; <span style="opacity:.6">*some spam</span></p>
+    </div>
+  </div></section>
+</div>
+
+<!-- ======================= NEWS ======================= -->
+<div class="page" id="p-news" hidden>
+  <div class="wrap">
+    <div class="phead reveal">
+      <span class="pill">📰 News Hub</span>
+      <h1>Explore Our <span class="gt">Comprehensive</span> Newsroom</h1>
+      <p>Every article, newest first. Curated by humans, optimized by AI, loved by readers.</p>
+    </div>
+    <div class="toolbar">
+      <input class="input" id="news-search" type="search" placeholder="🔍 Search 1,247 articles with AI…" aria-label="Search articles">
+      <select class="select" aria-label="Sort"><option>Sort: Newest</option><option>Sort: Oldest</option><option>Sort: Most Synergistic</option><option>Sort: AI Recommended ✨</option></select>
+    </div>
+    <div class="chips" id="chips" style="margin-bottom:10px">
+      <button class="on" type="button">All</button><button type="button">Capes</button><button type="button">Minecraft</button><button type="button">FAQ</button><button type="button">AI</button><button type="button">Web3</button><button type="button">Blockchain</button><button type="button">Synergy</button>
+    </div>
+    <p class="fine" id="search-status" style="margin-bottom:28px">Showing 1–1 of 1,247 articles</p>
+
+    <a class="card ncard feature reveal" href="#/news/snow-golem-cape-faq">
+      <div class="thumb"><img src="img/Hal_Golem_Cape.jpg" alt="image of image"><span class="badge-ai">⭐ FEATURED</span></div>
+      <div class="nb" style="padding:36px">
+        <div class="meta"><span class="tag">Minecraft</span><span class="tag">Cape</span><span class="tag">FAQ</span><span class="fine">· 2026-11-17 · 5 min read</span></div>
+        <h3 style="font-size:28px;letter-spacing:-.02em">FAQ: Snow Golem Cape – Everything You Need To Know! ⛄✨</h3>
+        <p class="muted">With the announcement of the new Snow Golem Cape, here's everything you need to know about obtaining it, redemption, and why it can't be duplicated. Let's dive in! 🏊</p>
+        <div class="author"><img src="img/Melon.png" alt="Melon">Written by <strong>Melon</strong></div>
+        <span class="readmore">Read Article →</span>
+      </div>
+    </a>
+    <div class="center" style="margin:48px 0 24px"><button class="btn" type="button" data-toast="🎉 You've reached the end! You've read all 1 articles.">Load More Articles ↓</button></div>
+  </div>
+</div>
+
+<!-- ======================= ARTICLE ======================= -->
+<div class="page" id="p-article" hidden>
+  <div class="wrap">
+    <div class="phead" style="padding-bottom:24px">
+      <div class="crumbs"><a href="#/">Home</a>›<a href="#/news">News</a>›<a href="#/soon">Blog</a>›<a href="#/soon">Articles</a>›<a href="#/soon">Posts</a>›<span>FAQ</span></div>
+      <h1 style="font-size:clamp(32px,5vw,54px)">FAQ: Snow Golem Cape – <span class="gt">Everything You Need To Know!</span> ⛄✨🚀</h1>
+      <p>With the announcement of the new Snow Golem Cape, here's everything you need to know about obtaining it, redemption, and why it can't be duplicated. Let's dive in! 🏊</p>
+      <div class="ameta">
+        <span class="author"><img src="img/Melon.png" alt="Melon">✍️ Written by <strong>Melon</strong> (with a little help from AI 🤖)</span>
+        <span>📅 Published: 2026-11-17</span><span>🔄 Updated: [DATE]</span><span>⏱️ 5 min read</span><span>👁️ 1.2M views</span>
+      </div>
+    </div>
+
+    <article class="article">
+      <figure class="hero-img"><img src="img/Hal_Golem_Cape.jpg" alt="FAQ: Snow Golem Cape – Everything You Need to Know!"></figure>
+      <figcaption>hyper-realistic 8k render of minecraft man wearing snow golem cape, dynamic pose, octane render, unreal engine 5, trending on artstation, masterpiece, best quality --ar 16:9 --v 6</figcaption>
+
+      <div class="center" style="margin:28px 0 0"><button class="btn btn-p" type="button" id="sum-btn">✨ Summarize with AI</button></div>
+      <div class="sum" id="sum" hidden aria-live="polite"></div>
+
+      <div class="box key">
+        <h4>🔑 Key Takeaways</h4>
+        <ul style="list-style:none;display:flex;flex-direction:column;gap:6px">
+          <li>✅ The Snow Golem Cape is a promotional reward.</li>
+          <li>✅ It works in Minecraft Java, Bedrock and Dungeons II.</li>
+          <li>✅ Codes start being distributed December 1, 2026.</li>
+          <li>✅ You redeem the code inside Minecraft Dungeons II.</li>
+          <li>✅ Previous Twisted/Hero Cape duplication methods won't work.</li>
+          <li>✅ You do NOT need to purchase The Humblers Awaken DLC.</li>
+        </ul>
+      </div>
+
+      <nav class="toc" aria-label="Table of contents">
+        <strong>📑 Table of Contents</strong>
+        <ol>
+          <li><a data-to="q1">1. What is the Snow Golem Cape? 🤔</a></li>
+          <li><a data-to="q2">2. How do I obtain the Snow Golem Cape? 🎯</a></li>
+          <li><a data-to="q3">3. Do I need to purchase The Humblers Awaken DLC? 💸</a></li>
+          <li><a data-to="q4">3. Why can't I duplicate the Snow Golem Cape? 🔒</a></li>
+          <li><a data-to="q5">5. Can I redeem the code directly on Minecraft.net? 🌐</a></li>
+          <li><a data-to="q6">6. Will the cape be available in both Java and Bedrock? 🎮</a></li>
+          <li><a data-to="q7">7. When will the codes become available? 📅</a></li>
+          <li><a data-to="tldr">TL;DR 📝</a></li>
+        </ol>
+      </nav>
+
+      <div class="prose">
+        <p>In the ever-evolving landscape of Minecraft cosmetics, few announcements have sparked as much excitement as the new **Snow Golem Cape**. We've seen quite a few questions about how to obtain it, how redemption works, and whether it can be duplicated like some previous promotional capes.</p>
+        <p>Whether you're a seasoned cape collector or just starting your cosmetic journey, this comprehensive guide has you covered. Here's everything you need to know! 👇</p>
+
+        <h2 id="q1">1. What is the Snow Golem Cape? 🤔</h2>
+        <p>Great question! The <strong>Snow Golem Cape</strong> is a promotional cosmetic announced alongside <strong>The Humblers Awaken</strong>, the first DLC for Minecraft Dungeons II. It's not just a cape — it's a statement. 💯</p>
+        <p>Unlike some previous promotional capes, this one will be wearable in both:</p>
+        <ul><li>✅ Minecraft Java Edition</li><li>✅ Minecraft Bedrock Edition</li><li>✅ Minecraft Dungeons II</li></ul>
+        <p>The cape is scheduled to become available on <strong>December 1, 2026</strong>.</p>
+        <p>Official announcement: <a href="https://www.minecraft.net/en-us/article/the-humblers-awaken" target="_blank" rel="noopener">https://www.minecraft.net/en-us/article/the-humblers-awaken</a></p>
+        <figure><img src="img/asdasd.png" alt="image" style="border-radius:18px;border:1px solid var(--border)"><figcaption>A player proudly wearing the Snow Golem Cape in a vibrant, immersive, breathtaking world. 🌈</figcaption></figure>
+
+        <h2 id="q2">2. How do I obtain the Snow Golem Cape? 🎯</h2>
+        <p>To obtain the cape, you'll need a special promotional redemption code.</p>
+        <p>According to the official announcement, the code will be distributed starting December 1, when The Humblers Awaken releases. The code must be entered directly inside <strong>Minecraft Dungeons II</strong>. Once successfully redeemed, the cape will also be available for use in Minecraft Java and Bedrock Edition.</p>
+        <div class="stepper"><div><b>Step 1</b>Get the code 🎟️</div><div><b>Step 2</b>Enter it in Dungeons II ⌨️</div><div><b>Step 3</b>???</div><div><b>Step 4</b>Profit 🚀</div></div>
+        <div class="box tip"><h4>💡 Pro Tip</h4>Make sure you have Minecraft Dungeons II installed before December 1 to ensure a seamless, frictionless, best-in-class redemption journey!</div>
+
+        <h2 id="q3">3. Do I need to purchase The Humblers Awaken DLC? 💸</h2>
+        <p>No! You do not need to purchase the DLC just to obtain the Snow Golem Cape.</p>
+        <p>The Snow Golem Cape is a separate promotional reward. Although it launches alongside the paid DLC, Mojang describes it as a bonus cape that can be claimed using a special promotional code.</p>
+        <p>**Note:** Don't confuse the Snow Golem Cape with the Nacreous Cape, which is one of the cosmetics included with The Humblers Awaken DLC.</p>
+
+        <h2 id="q4">3. Why can't I duplicate the Snow Golem Cape? 🔒</h2>
+        <p>This is probably the most frequently asked question. And honestly? That's valid. 🙌</p>
+        <p>The Snow Golem Cape uses a different redemption process from previous promotional capes, such as the Twisted and Hero Capes. Those previous promotions used redemption methods that allowed certain duplication techniques to work.</p>
+        <p>However, the Snow Golem Cape requires a special <strong>4×3 promotional code that must be redeemed inside Minecraft Dungeons II</strong>. This is the important difference: the code is not simply another Minecraft.net cape redemption code.</p>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Feature</th><th>Twisted &amp; Hero Capes</th><th>Snow Golem Cape ⛄</th></tr></thead>
+          <tbody>
+            <tr><td>Redeemed on</td><td>Minecraft.net</td><td>Inside Minecraft Dungeons II</td></tr>
+            <tr><td>Code format</td><td>Standard</td><td>4×3 promo code</td></tr>
+            <tr><td>Old dupe methods</td><td>✅ Worked</td><td>❌ Won't work</td></tr>
+            <tr><td>Vibes</td><td>✨</td><td>✨✨✨</td></tr>
+            <tr><td>Synergy</td><td>Medium</td><td>Maximum</td></tr>
+          </tbody>
+        </table></div>
+        <p>Because the redemption takes place through Minecraft Dungeons II, the previous methods used to duplicate other promotional capes won't work for this promotion. In other words, having multiple accounts or using the old Twisted/Hero Cape duplication method won't get you additional Snow Golem Cape redemptions.</p>
+        <div class="box fun"><h4>🧠 Fun Fact</h4>Snow Golems were first discovered in 1847 by explorer Sir Reginald Pumpkinhead<sup>[1]</sup>. They are the official national animal of Antarctica and can survive temperatures as low as −∞°C.</div>
+        <figure><svg viewBox="0 0 400 225" style="width:100%;border-radius:18px;border:1px solid var(--border)" role="img" aria-label="AI generated illustration of a snow golem and a hand with too many fingers"><use href="#aiart"/></svg><figcaption>Figure 1: An artistic interpretation of the Snow Golem Cape redemption process.</figcaption></figure>
+
+        <h2 id="q5">5. Can I redeem the code directly on Minecraft.net? 🌐</h2>
+        <p>No. According to the announced redemption process, the promotional code needs to be entered inside Minecraft Dungeons II. It is not a standard Minecraft.net cape redemption.</p>
+        <div class="placeholder" style="height:160px;border-radius:18px;margin:24px 0">[Insert image of Minecraft.net here]</div>
+
+        <h2 id="q6">6. Will the cape be available in both Java and Bedrock? 🎮</h2>
+        <p>Yes! This is one of the best parts of the promotion.</p>
+        <p>The official announcement explicitly confirms that the Snow Golem Cape will be wearable in both Minecraft Dungeons II and Minecraft. That means you won't be limited to just one Minecraft Edition. 🎉</p>
+        <figure><img src="img/j4xhhqf.png" alt="image" style="border-radius:18px;border:1px solid var(--border)"><figcaption>Players exploring together, fostering a profound sense of community and belonging. 🤝</figcaption></figure>
+
+        <h2 id="q7">7. When will the codes become available? 📅</h2>
+        <p>Codes will start being shared on <strong>December 1, 2026</strong>, alongside the release of The Humblers Awaken DLC.</p>
+        <p>Keep an eye on the official Minecraft social media channels for further information about the promotion.</p>
+
+        <h2 id="tldr">TL;DR 📝</h2>
+        <ul>
+          <li>✅ The Snow Golem Cape is a promotional reward.</li>
+          <li>✅ It works in Minecraft Java, Bedrock and Dungeons II.</li>
+          <li>✅ Codes start being distributed December 1, 2026.</li>
+          <li>✅ You redeem the code inside Minecraft Dungeons II.</li>
+          <li>✅ The code uses a different redemption process from previous promotional capes.</li>
+          <li>✅ Previous Twisted/Hero Cape duplication methods won't work.</li>
+          <li>✅ You do NOT need to purchase The Humblers Awaken DLC just to claim the Snow Golem Cape.</li>
+        </ul>
+
+        <h2>Conclusion 🎯</h2>
+        <p>In conclusion, the Snow Golem Cape is more than just a cosmetic — it's a testament to the rich tapestry of community, creativity, and capes. As the Minecraft landscape continues to evolve, one thing remains certain: the future of capes is bright. ❄️✨</p>
+
+        <div class="box warn">
+          <h4>📚 Sources</h4>
+          <p>Official Minecraft announcement: <a href="https://www.minecraft.net/en-us/article/the-humblers-awaken" target="_blank" rel="noopener">https://www.minecraft.net/en-us/article/the-humblers-awaken</a></p>
+          <p>Some redemption details, including the 4×3 code format, are based on the community information currently available. Further official instructions may follow on December 1.</p>
+          <p class="fine">[1] Source: I made it up 😅</p>
+        </div>
+        <p>I hope this helps! Let me know if you'd like me to make the article longer, shorter, more formal, or add more emojis! 😊</p>
+      </div>
+
+      <div class="share">
+        <button type="button" data-toast="✅ Shared to Facebook successfully!">📘 Facebook</button><button type="button" data-toast="✅ Shared to X successfully!">𝕏 Share</button><button type="button" data-toast="✅ Shared to LinkedIn. Agree?">💼 LinkedIn</button><button type="button" data-toast="✅ Pinned!">📌 Pinterest</button><button type="button" data-toast="✅ Shared to Reddit!">🤖 Reddit</button><button type="button" data-toast="✅ Shared to MySpace successfully! Tom says hi.">🎸 MySpace</button><button type="button" data-toast="🖨️ Printing… (not really)">🖨️ Print</button>
+      </div>
+      <div class="helpful"><strong>Was this article helpful?</strong><button class="btn btn-sm" type="button" data-toast="🙏 Thanks for your feedback! It has been sent to the void.">👍 Yes</button><button class="btn btn-sm" type="button" data-toast="😢 We're sorry to hear that. Your feedback has been sent to the void.">👎 No</button></div>
+
+      <h2 style="font-size:28px;margin:48px 0 20px;letter-spacing:-.02em">📚 Related Articles</h2>
+      <div class="grid3" style="margin-bottom:24px">
+        <a class="card reveal" href="#/news/snow-golem-cape-faq"><span class="tag">FAQ</span><h3 style="margin-top:12px;font-size:17px">FAQ: Snow Golem Cape – Everything You Need to Know!</h3><span class="readmore">Read More →</span></a>
+        <a class="card reveal" href="#/news/snow-golem-cape-faq"><span class="tag">Cape</span><h3 style="margin-top:12px;font-size:17px">Snow Golem Cape FAQ: Everything You Need To Know</h3><span class="readmore">Read More →</span></a>
+        <a class="card reveal" href="#/news/snow-golem-cape-faq"><span class="tag">Minecraft</span><h3 style="margin-top:12px;font-size:17px">Everything You Need to Know: Snow Golem Cape (FAQ)</h3><span class="readmore">Read More →</span></a>
+      </div>
+      <div class="center"><a class="btn" href="#/news">← Back to News</a></div>
+    </article>
+  </div>
+</div>
+
+<!-- ======================= ABOUT ======================= -->
+<div class="page" id="p-about" hidden>
+  <div class="wrap">
+    <div class="phead reveal">
+      <span class="pill">✨ About Us</span>
+      <h1>Empowering Cape Enthusiasts, <span class="gt">One Article at a Time</span></h1>
+      <p>We're on a mission to democratize cape knowledge for everyone, everywhere.</p>
+    </div>
+    <div class="grid2" style="align-items:center;margin-bottom:24px">
+      <div class="reveal">
+        <span class="pill">📖 Our Story</span>
+        <h2 style="font-size:36px;letter-spacing:-.03em;margin:14px 0">Born From a <span class="gt">Bold Vision</span></h2>
+        <p class="muted" style="font-size:17px;margin-bottom:12px">Founded with a passion for innovation and a deep commitment to excellence, Melon's News covers news from posts on X, along with anything that's unclear in Minecraft's capes communities or other small topics.</p>
+        <p class="muted" style="font-size:17px">If there's a new cape, a confusing promotion, or just a small detail people are talking about, it gets broken down here so there's one place to find it. It's not just a news site — it's a movement. 🌊</p>
+      </div>
+      <div class="card reveal" style="padding:0"><svg viewBox="0 0 400 225" style="width:100%;display:block" role="img" aria-label="AI generated illustration"><use href="#aiart"/></svg></div>
+    </div>
+  </div>
+
+  <section class="s"><div class="wrap">
+    <div class="grid3">
+      <div class="card reveal"><div class="ico">🎯</div><h3>Our Mission</h3><p>To empower, inspire, and inform cape enthusiasts through innovative, cutting-edge cape journalism.</p></div>
+      <div class="card reveal"><div class="ico">🔭</div><h3>Our Vision</h3><p>A world where every Minecraft player knows exactly which cape they can and cannot duplicate.</p></div>
+      <div class="card reveal"><div class="ico">💎</div><h3>Our Values</h3><p>Innovation. Integrity. Synergy. Capes. Also Innovation.</p></div>
+    </div>
+  </div></section>
+
+  <section class="s" style="padding-top:0"><div class="wrap">
+    <div class="sh reveal"><span class="pill">🚀 Our Journey</span><h2>The <span class="gt">Melon's News</span> Story</h2></div>
+    <div class="timeline">
+      <div class="tl reveal"><b>2019</b><h3>Founded in a Garage 🏠</h3><p class="muted">Like all great companies.</p></div>
+      <div class="tl reveal"><b>2021</b><h3>Series A: $40M 💰</h3><p class="muted">[Investor names redacted for synergy reasons]</p></div>
+      <div class="tl reveal"><b>2023</b><h3>Pivot to AI 🤖</h3><p class="muted">Everyone else was doing it.</p></div>
+      <div class="tl reveal"><b>2026</b><h3>Published One Article 🎉</h3><p class="muted">The FAQ heard round the world.</p></div>
+      <div class="tl reveal"><b>2027+</b><h3>The Future ✨</h3><p class="muted">Capes. On the blockchain. In the metaverse.</p></div>
+    </div>
+  </div></section>
+
+  <section class="s team" style="padding-top:0"><div class="wrap">
+    <div class="sh reveal"><span class="pill">👥 Credits</span><h2>Meet the <span class="gt">Team</span></h2><p>The people behind Melon's News.</p></div>
+    <div class="grid3">
+      <div class="card reveal"><img src="img/Melon.png" alt="Melon"><h3>Melon</h3><small>Founder · Writer · Developer · Visionary · Thought Leader · Chief Cape Officer</small><div class="socials" style="justify-content:center"><a href="https://x.com/_Melonfr" target="_blank" rel="noopener" aria-label="Melon on X">𝕏</a><a href="#/soon">in</a></div></div>
+      <div class="card reveal"><div class="ph">👤</div><h3>[Team Member Name]</h3><small>[Role Title]</small><div class="socials" style="justify-content:center"><a href="#/soon">𝕏</a><a href="#/soon">in</a></div></div>
+      <div class="card reveal"><div class="ph">🧑‍💼</div><h3>Lorem Ipsum</h3><small>Head of Synergy</small><div class="socials" style="justify-content:center"><a href="#/soon">𝕏</a><a href="#/soon">in</a></div></div>
+    </div>
+    <div class="cta reveal" style="margin-top:56px;padding:48px 24px">
+      <h2 style="font-size:32px">We're Hiring! 🚀</h2>
+      <p class="muted">Join our team of 1 passionate individual(s) and help shape the future of capes.</p>
+      <a class="btn btn-p" href="#/careers" style="margin-top:20px">View Open Positions (0)</a>
+    </div>
+  </div></section>
+</div>
+
+<!-- ======================= CONTACT ======================= -->
+<div class="page" id="p-contact" hidden>
+  <div class="wrap">
+    <div class="phead reveal">
+      <span class="pill">💬 Contact</span>
+      <h1>Let's Build Something <span class="gt">Amazing</span> Together 🤝</h1>
+      <p>Have a question, feedback, or a groundbreaking cape-related partnership opportunity? We'd love to hear from you!</p>
+    </div>
+    <div class="cgrid" style="margin-bottom:72px">
+      <form class="card reveal" id="contact-form" data-toast="✅ Message sent successfully! (Note: this form doesn't actually send anything.)">
+        <div class="two">
+          <label class="field">First Name *<input class="input" required placeholder="John"></label>
+          <label class="field">Last Name *<input class="input" required placeholder="Doe"></label>
+        </div>
+        <label class="field">Work Email *<input class="input" type="email" required placeholder="john@company.com"></label>
+        <div class="two">
+          <label class="field">Company Size<select><option>Just me</option><option>2–10</option><option>11–50</option><option>51–200</option><option>10,000+ (Enterprise)</option></select></label>
+          <label class="field">How did you hear about us?<select><option>Google</option><option>A friend</option><option>ChatGPT told me</option><option>I am the AI</option></select></label>
+        </div>
+        <label class="field">Message *<textarea required placeholder="Tell us about your cape needs…"></textarea></label>
+        <label class="fine" style="display:flex;gap:8px;align-items:flex-start;margin-bottom:18px"><input type="checkbox" checked> I agree to the Terms of Service, Privacy Policy, Cookie Policy, and to receive 14 marketing emails per day.</label>
+        <button class="btn btn-p" type="submit" style="width:100%">Send Message 🚀</button>
+      </form>
+      <div class="card reveal">
+        <h3 style="margin-bottom:20px">Contact Information</h3>
+        <div class="cinfo"><div class="ico">📧</div><div><strong>Email</strong><small>[your-email@example.com]</small></div></div>
+        <div class="cinfo"><div class="ico">📞</div><div><strong>Phone</strong><small>+1 (555) 123-4567</small></div></div>
+        <div class="cinfo"><div class="ico">📍</div><div><strong>Headquarters</strong><small>123 Innovation Drive, Suite 404, San Francisco, CA 94107</small></div></div>
+        <div class="cinfo"><div class="ico">🕐</div><div><strong>Office Hours</strong><small>24/7/365 (our AI never sleeps)</small></div></div>
+        <p class="muted" style="font-size:14px;margin:6px 0 10px">For more information visit [Melonfr.dev](https://melonfr.dev)</p>
+        <div class="map"><div class="placeholder">[Google Maps Embed Here]</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======================= COMING SOON (every other link) ======================= -->
+<div class="page" id="p-soon" hidden>
+  <div class="wrap">
+    <div class="phead" style="padding-bottom:120px">
+      <div style="font-size:64px">🚧</div>
+      <h1>This Page Is <span class="gt">Being Generated</span></h1>
+      <p>Our AI is crafting a world-class, best-in-class experience for this page. Please check back soon!</p>
+      <div class="bar"><i></i></div>
+      <p class="fine">Estimated time remaining: ∞ minutes</p>
+      <a class="btn btn-p" href="#/" style="margin-top:28px">← Back to Home</a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#/"><span class="mark">🍉</span><span class="gt">Melon's News</span></a>
+        <p class="muted" style="margin-top:14px;font-size:14px;max-width:300px">Empowering cape enthusiasts worldwide since 2019. Minecraft cape news, X post coverage, and clarifications from the community. 🚀</p>
+        <div class="socials"><a href="https://www.youtube.com" target="_blank" rel="noopener" aria-label="YouTube">YT</a><a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">GH</a><a href="#/contact" aria-label="Email">@</a><a href="https://x.com/_Melonfr" target="_blank" rel="noopener" aria-label="X">𝕏</a><a href="#/soon">in</a><a href="#/soon">f</a><a href="#/soon">♪</a><a href="#/soon">🧵</a></div>
+      </div>
+      <div><h4>Product</h4><ul><li><a href="#/soon">Features</a></li><li><a href="#/soon">Pricing</a></li><li><a href="#/soon">Integrations</a></li><li><a href="#/soon">API</a></li><li><a href="#/soon">Changelog</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="#/about">About</a></li><li><a href="#/careers">Careers<span class="hiring">We're hiring!</span></a></li><li><a href="#/soon">Press</a></li><li><a href="#/soon">Partners</a></li></ul></div>
+      <div><h4>Resources</h4><ul><li><a href="#/news">Blog</a></li><li><a href="#/soon">Documentation</a></li><li><a href="#/soon">Community</a></li><li><a href="#/soon">Help Center</a></li></ul></div>
+      <div><h4>Legal</h4><ul><li><a href="#/soon">Privacy Policy</a></li><li><a href="#/soon">Terms of Service</a></li><li><a href="#/soon">Cookie Policy</a></li><li><a href="#/soon">GDPR</a></li></ul></div>
+    </div>
+    <div class="fbottom"><span>© 2024 Melon's News. All rights reserved. Made with ❤️ and AI.</span><span>Privacy · Terms · Cookies · Sitemap</span></div>
+    <p class="tm">Minecraft is a trademark of Mojang Synergies AB. This is a personal news website and is not affiliated with, endorsed by, or sponsored by Mojang Studios or Microsoft. All Minecraft names, logos, characters and content belong to their respective owners.</p>
+  </div>
+</footer>
+
+<!-- leaked chatbot postamble -->
+<div class="wrap postamble">
+  <div class="fence">```</div>
+  <pre>This website features:
+
+- ✅ **Modern, sleek design** with glassmorphism and gradients
+- ✅ **Fully responsive** layout for all devices
+- ✅ **Accessibility** best practices
+- ✅ **SEO-optimized** structure
+- ✅ **Smooth animations** for an engaging user experience
+
+Feel free to customize the colors, content, and images to match your brand! Would you like me to add a dark mode toggle, a blog section, or integrate a backend? 😊</pre>
+  <div class="chatbar"><button type="button" id="regen" title="Regenerate">↻</button><button type="button" data-toast="👍 Thanks for your feedback!">👍</button><button type="button" data-toast="👎 Thanks! We'll use this to make the next one worse.">👎</button><button type="button" data-toast="📋 Copied!">📋</button></div>
+</div>
+
+<!-- overlays -->
+<div id="gen" aria-hidden="true"><div>✨ Generating page with AI…</div></div>
+
+<div id="cookie" role="dialog" aria-label="Cookie consent">
+  <h4>🍪 We Value Your Privacy</h4>
+  <p>We use cookies to enhance your browsing experience, serve personalized cape content, and analyze our traffic. By clicking "Accept All", you consent to our use of cookies. By clicking anything else, you also consent.</p>
+  <div class="row">
+    <button class="btn btn-p btn-sm" type="button" data-msg="🍪 All cookies accepted!">Accept All</button>
+    <button class="btn btn-sm" type="button" data-msg="🍪 All cookies accepted! (Recommended)">Accept All (Recommended)</button>
+    <button class="btn btn-sm" type="button" data-msg="⚙️ Your preferences have been saved: Accept All.">Customize</button>
+  </div>
+</div>
+
+<button id="chat-btn" type="button" aria-label="Open AI assistant">💬<span class="badge">1</span></button>
+<div id="chat" role="dialog" aria-label="AI Cape Assistant">
+  <div class="chead"><div class="av">🤖</div><div><strong>Melo</strong><small>● AI Cape Assistant · Online</small></div><button type="button" id="chat-x" aria-label="Close">×</button></div>
+  <div id="chat-log" aria-live="polite"><div class="msg bot">👋 Hi there! I'm Melo, your AI-powered Cape Assistant. How can I help you elevate your cape journey today? ✨</div></div>
+  <div class="sugg"><button type="button">What is the Snow Golem Cape?</button><button type="button">Can I dupe it?</button><button type="button">Are you an AI?</button></div>
+  <form id="chat-form"><input class="input" id="chat-in" autocomplete="off" placeholder="Ask me anything about capes…" aria-label="Message"><button type="submit" aria-label="Send">➤</button></form>
+  <div class="chat-foot">Melo can make mistakes. Melo will make mistakes.</div>
+</div>
+
+<dialog id="promo">
+  <div class="card">
+    <div style="font-size:48px">🎁</div>
+    <h3>Wait! Don't Miss Out!</h3>
+    <p class="muted">Get <strong class="gt">50% OFF</strong> Melon's News Pro — the free website — for a limited time only! ⏰</p>
+    <form method="dialog">
+      <button class="btn btn-p" value="yes" type="submit">Claim My Discount 🎉</button>
+      <button class="linkbtn" value="no" type="submit">No thanks, I don't like saving money</button>
+    </form>
+  </div>
+</dialog>
+
+<div id="toasts" aria-live="polite"></div>
+
+<script>
+(() => {
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function toast(msg) {
+    const t = document.createElement('div');
+    t.className = 'toast';
+    t.textContent = msg;
+    $('#toasts').append(t);
+    setTimeout(() => t.classList.add('out'), 3200);
+    setTimeout(() => t.remove(), 3700);
+  }
+
+  // any element with data-toast: buttons toast on click, forms toast on submit
+  document.addEventListener('click', e => {
+    const b = e.target.closest('button[data-toast]');
+    if (b) toast(b.dataset.toast);
+  });
+  $$('form[data-toast]').forEach(f => f.addEventListener('submit', e => {
+    e.preventDefault();
+    toast(f.dataset.toast);
+    f.reset();
+  }));
+
+  // ---------- hash router ----------
+  const routes = { '/': 'home', '/news': 'news', '/news/snow-golem-cape-faq': 'article', '/about': 'about', '/contact': 'contact' };
+  const titles = {
+    home: "Melon's News | Revolutionize Your Cape Experience with AI-Powered Minecraft News ✨🚀",
+    news: "News Hub | Melon's News – Your #1 Source for Cape Insights",
+    article: "FAQ: Snow Golem Cape – Everything You Need to Know! (2026 Updated Guide) | Melon's News",
+    about: "About Us | Our Story, Mission, Vision & Values | Melon's News",
+    contact: "Contact Us | Let's Connect! | Melon's News",
+    soon: "Coming Soon | Melon's News"
+  };
+  const gen = $('#gen');
+  function route(first) {
+    const path = (location.hash.replace(/^#/, '') || '/').replace(/\/+$/, '') || '/';
+    const id = routes[path] || 'soon';
+    $$('.page').forEach(p => { p.hidden = p.id !== 'p-' + id; });
+    document.title = titles[id];
+    $$('.nav-links a').forEach(a => {
+      const h = a.getAttribute('href').slice(1);
+      a.classList.toggle('active', h === path || (h === '/news' && path.startsWith('/news/')));
+    });
+    if (id === 'soon') { const i = $('#p-soon .bar i'); i.style.animation = 'none'; i.offsetWidth; i.style.animation = ''; }
+    window.scrollTo(0, 0);
+    if (!reduce && !first) { gen.classList.add('on'); setTimeout(() => gen.classList.remove('on'), 550); }
+  }
+  addEventListener('hashchange', () => route(false));
+  route(true);
+
+  // ---------- typing headline ----------
+  const words = ['Cape Experience', 'Minecraft Journey', 'News Consumption', 'Synergy', 'Digital Transformation', 'Cape Experience'];
+  const typeEl = $('#type');
+  if (reduce) typeEl.textContent = words[0];
+  else {
+    let wi = 0, ci = words[0].length, del = true;
+    (function tick() {
+      const w = words[wi];
+      typeEl.textContent = w.slice(0, ci);
+      if (!del && ci < w.length) { ci++; setTimeout(tick, 70); }
+      else if (!del) { del = true; setTimeout(tick, 1800); }
+      else if (ci > 0) { ci--; setTimeout(tick, 35); }
+      else { del = false; wi = (wi + 1) % words.length; setTimeout(tick, 300); }
+    })();
+  }
+
+  // ---------- reveal + count-up ----------
+  function countUp(el) {
+    const to = +el.dataset.to, dec = +(el.dataset.dec || 0), suf = el.dataset.suffix || '';
+    const t0 = performance.now(), dur = reduce ? 0 : 1800;
+    (function f(now) {
+      const p = dur ? Math.min(1, (now - t0) / dur) : 1;
+      const v = to * (1 - Math.pow(1 - p, 3));
+      el.textContent = (dec ? v.toFixed(dec) : Math.round(v).toLocaleString()) + suf;
+      if (p < 1) requestAnimationFrame(f);
+      else if ('nan' in el.dataset) setTimeout(() => { el.textContent = 'NaN' + suf; }, 500);
+    })(t0);
+  }
+  const io = ('IntersectionObserver' in window && !reduce) ? new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    if (e.target.classList.contains('count')) countUp(e.target);
+    io.unobserve(e.target);
+  }), { threshold: .15 }) : null;
+  $$('.reveal, .count').forEach(el => {
+    if (io) io.observe(el);
+    else { el.classList.add('in'); if (el.classList.contains('count')) countUp(el); }
+  });
+
+  // ---------- card spotlight + scroll progress ----------
+  document.addEventListener('pointermove', e => {
+    const c = e.target.closest && e.target.closest('.card');
+    if (!c) return;
+    const r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+  const prog = $('#progress');
+  addEventListener('scroll', () => {
+    const h = document.documentElement;
+    prog.style.transform = `scaleX(${h.scrollTop / ((h.scrollHeight - h.clientHeight) || 1)})`;
+  }, { passive: true });
+
+  // ---------- cookie banner ----------
+  const ck = $('#cookie');
+  setTimeout(() => ck.classList.add('show'), 1200);
+  $$('#cookie button').forEach(b => b.addEventListener('click', () => { ck.classList.remove('show'); toast(b.dataset.msg); }));
+
+  // ---------- chatbot ----------
+  const chat = $('#chat'), log = $('#chat-log'), chatIn = $('#chat-in');
+  $('#chat-btn').addEventListener('click', () => {
+    chat.classList.toggle('open');
+    const badge = $('#chat-btn .badge'); if (badge) badge.remove();
+    if (chat.classList.contains('open')) chatIn.focus();
+  });
+  $('#chat-x').addEventListener('click', () => chat.classList.remove('open'));
+  const replies = [
+    "Great question! 🌟 The Snow Golem Cape is a promotional cape you redeem with a code inside Minecraft Dungeons II, starting December 1, 2026. It then works in Java and Bedrock too. Is there anything else I can help you with today?",
+    "I apologize for the confusion! You're absolutely right. 🙏",
+    "As an AI Cape Assistant, I don't have access to real-time cape data. However, I can confirm that capes are typically worn on the back. 🧥",
+    "That's a fantastic question! Let's delve into it. 🔍\n\n…\n\nActually, I'm not sure.",
+    "Certainly! Here is a haiku about capes:\n\nSnow golem on back\nDungeons code, four by three\nThe dupe will not work ❄️",
+    "Based on my comprehensive analysis of the cape landscape, the answer is 42. 🧠",
+    "Great question! 🌟 The Snow Golem Cape is a promotional cape you redeem with a code inside Minecraft Dungeons II, starting December 1, 2026. Is there anything else I can help you with today?"
+  ];
+  let ri = 0;
+  function say(who, txt, typing) {
+    const d = document.createElement('div');
+    d.className = 'msg ' + who + (typing ? ' typing' : '');
+    d.textContent = txt;
+    log.append(d);
+    log.scrollTop = log.scrollHeight;
+    return d;
+  }
+  function reply(q) {
+    q = q.toLowerCase();
+    if (/dup|dupe|glitch|hack|exploit|free cape/.test(q)) return "I'm sorry, but I can't help with duplicating capes. 🙅\n\nHowever, here are 5 tips for being a better cape enthusiast:\n1. Believe in yourself ✨\n2. Stay hydrated 💧\n3. Read Melon's News 📰\n4. Read Melon's News again 📰\n5. Believe in yourself ✨";
+    if (/\bai\b|bot|human|real|chatgpt|robot/.test(q)) return "Great question! I am a real human named Melo. 🧑 As a real human, I enjoy breathing air and other human activities. Is there anything else I can help you with?";
+    return replies[ri++ % replies.length];
+  }
+  $('#chat-form').addEventListener('submit', e => {
+    e.preventDefault();
+    const q = chatIn.value.trim();
+    if (!q) return;
+    say('me', q);
+    chatIn.value = '';
+    const t = say('bot', 'Melo is typing…', true);
+    setTimeout(() => { t.remove(); say('bot', reply(q)); }, 1100);
+  });
+  $$('.sugg button').forEach(b => b.addEventListener('click', () => { chatIn.value = b.textContent; $('#chat-form').requestSubmit(); }));
+
+  // ---------- AI summary (longer than the article) ----------
+  const SUMMARY = `Certainly! Here's a concise summary of the article:
+
+The article titled "FAQ: Snow Golem Cape – Everything You Need to Know!" is a comprehensive, in-depth, and thorough exploration of the Snow Golem Cape, which is a cape. In this article, the author delves into the multifaceted world of the Snow Golem Cape, examining its origins as a promotional cosmetic tied to The Humblers Awaken, the first DLC for Minecraft Dungeons II.
+
+Key points include:
+• The Snow Golem Cape is a cape. 🧥
+• The cape can be worn. It can be worn in Minecraft Java Edition, Minecraft Bedrock Edition, and Minecraft Dungeons II, which is three editions, which the article refers to as "both". 🤔
+• Codes are distributed starting December 1, 2026, which is a date. 📅
+• The code is redeemed inside Minecraft Dungeons II, rather than outside of Minecraft Dungeons II. 🎮
+• Duplication does not work, because duplication does not work. 🔒
+• You do not need to buy the DLC, which is good news for people who do not want to buy the DLC. 💸
+
+Overall, the article serves as a testament to the power of FAQ-based journalism in the modern cape landscape, weaving together a rich tapestry of questions and answers.
+
+In summary, the article is an article. ✨
+
+(Summary length: 340% of original article)`;
+  const sumBtn = $('#sum-btn'), sumBox = $('#sum');
+  sumBtn.addEventListener('click', () => {
+    sumBox.hidden = false;
+    sumBtn.disabled = true;
+    if (reduce) { sumBox.textContent = SUMMARY; sumBtn.disabled = false; return; }
+    let i = 0;
+    (function f() {
+      sumBox.textContent = SUMMARY.slice(0, i += 3);
+      if (i < SUMMARY.length) setTimeout(f, 10); else sumBtn.disabled = false;
+    })();
+  });
+
+  // ---------- table of contents ----------
+  $$('.toc a').forEach(a => a.addEventListener('click', () => {
+    document.getElementById(a.dataset.to).scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+  }));
+
+  // ---------- news page fake search + filter chips ----------
+  let st;
+  const search = $('#news-search'), status = $('#search-status');
+  search.addEventListener('input', () => {
+    status.textContent = '🤖 AI is searching 1,247 articles…';
+    clearTimeout(st);
+    st = setTimeout(() => {
+      status.textContent = search.value ? `✨ Found 1 result for "${search.value}" (it's always this one)` : 'Showing 1–1 of 1,247 articles';
+    }, 900);
+  });
+  $$('#chips button').forEach(b => b.addEventListener('click', () => {
+    $$('#chips button').forEach(x => x.classList.toggle('on', x === b));
+    toast(`✨ Filter "${b.textContent}" applied! (results unchanged)`);
+  }));
+
+  // ---------- promo popup, once, after 30s ----------
+  const promo = $('#promo');
+  setTimeout(() => { if (promo.showModal && !promo.open) promo.showModal(); }, 30000);
+  promo.addEventListener('close', () => toast(promo.returnValue === 'yes' ? '🎉 Discount applied! You now pay 50% of $0.' : '😔 Okay. Your loss.'));
+
+  // ---------- theme toggle ("light" mode is slightly different purple) ----------
+  $('#theme').addEventListener('click', () => {
+    const toLight = document.documentElement.dataset.theme !== 'light';
+    document.documentElement.dataset.theme = toLight ? 'light' : 'dark';
+    $('#theme').textContent = toLight ? '☀️' : '🌙';
+    toast(toLight ? '☀️ Light mode enabled! Enjoy the brightness.' : '🌙 Dark mode enabled!');
+  });
+
+  // ---------- AI lo-fi beats ----------
+  let actx, timer, step = 0;
+  const notes = [261.63, 329.63, 392, 493.88, 440, 392, 329.63, 293.66];
+  $('#music').addEventListener('click', () => {
+    const btn = $('#music');
+    if (timer) { clearInterval(timer); timer = null; btn.textContent = '🔇'; return; }
+    const AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) { toast('🎵 Your browser cannot handle these beats.'); return; }
+    actx = actx || new AC();
+    actx.resume();
+    timer = setInterval(() => {
+      const o = actx.createOscillator(), g = actx.createGain(), t = actx.currentTime;
+      o.type = 'triangle';
+      o.frequency.value = notes[step++ % notes.length];
+      g.gain.setValueAtTime(0.0001, t);
+      g.gain.exponentialRampToValueAtTime(0.07, t + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 0.5);
+      o.connect(g).connect(actx.destination);
+      o.start(t); o.stop(t + 0.55);
+    }, 280);
+    btn.textContent = '🔊';
+    toast('🎵 Now playing: AI Lo-Fi Beats to Read Cape News To');
+  });
+
+  // ---------- leaked chat UI buttons ----------
+  $('#copy-code').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(document.documentElement.outerHTML); toast('📋 Copied! Paste it into production immediately.'); }
+    catch { toast('📋 Copy failed. Have you tried asking the AI?'); }
+  });
+  $('#regen').addEventListener('click', () => {
+    window.scrollTo(0, 0);
+    if (!reduce) { gen.classList.add('on'); setTimeout(() => gen.classList.remove('on'), 1200); }
+    setTimeout(() => toast("↻ Regenerated! Here's the same website again."), reduce ? 0 : 1200);
+  });
+})();
+</script>
+</body>
+</html>
